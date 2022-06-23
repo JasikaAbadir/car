@@ -9,6 +9,7 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 #import AWSIoTPythonSDK.MQTTLib as AWSIoTPyMQTT
 from awscrt import io, mqtt, auth, http
 from awsiot import mqtt_connection_builder
+import json
 
 def movement(self, params, packet):
     print ('Recieved msg from core')
@@ -36,8 +37,8 @@ myMQTTClient.connect()
 #while True:
 #    time.sleep(5)
 
-print("This is RPI speaking")
+print("sending payload to aws..")
 myMQTTClient.publish(
         topic="car/move",
         QoS=1,
-        payload="{'Message':'I am RPI'}")
+        payload= '{"hey": 2}')
