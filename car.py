@@ -3,6 +3,8 @@
 #from gpiozero import Robot
 import RPi.GPIO as GPIO
 from time import sleep
+import os
+
 
 #Roberta = Robot((6,13),(19,26))
 #Roberta.forward(0.8)
@@ -40,6 +42,9 @@ def stop():
 bd.when_pressed = move
 bd.when_moved = move
 bd.when_released = stop
+
+os.system('sleep 10s')
+os.system('python iotscript.py')
       
       
 
